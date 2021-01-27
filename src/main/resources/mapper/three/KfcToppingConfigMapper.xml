@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.databases.databases.dao.three.KfcToppingConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.databases.databases.domain.three.KfcToppingConfig" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="topping_id" property="topping_id" jdbcType="INTEGER" />
+    <result column="topping_name" property="topping_name" jdbcType="VARCHAR" />
+    <result column="topping_abbname" property="topping_abbname" jdbcType="VARCHAR" />
+    <result column="img_url" property="img_url" jdbcType="VARCHAR" />
+    <result column="img_weburl" property="img_weburl" jdbcType="VARCHAR" />
+    <result column="topping_dynamic" property="topping_dynamic" jdbcType="VARCHAR" />
+    <result column="store_code" property="store_code" jdbcType="VARCHAR" />
+    <result column="machine_code" property="machine_code" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, topping_id, topping_name, topping_abbname, img_url, img_weburl, topping_dynamic, 
+    store_code, machine_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from kfc_topping_config
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from kfc_topping_config
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.databases.databases.domain.three.KfcToppingConfig" >
+    insert into kfc_topping_config (id, topping_id, topping_name, 
+      topping_abbname, img_url, img_weburl, 
+      topping_dynamic, store_code, machine_code
+      )
+    values (#{id,jdbcType=INTEGER}, #{topping_id,jdbcType=INTEGER}, #{topping_name,jdbcType=VARCHAR}, 
+      #{topping_abbname,jdbcType=VARCHAR}, #{img_url,jdbcType=VARCHAR}, #{img_weburl,jdbcType=VARCHAR}, 
+      #{topping_dynamic,jdbcType=VARCHAR}, #{store_code,jdbcType=VARCHAR}, #{machine_code,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.databases.databases.domain.three.KfcToppingConfig" >
+    insert into kfc_topping_config
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="topping_id != null" >
+        topping_id,
+      </if>
+      <if test="topping_name != null" >
+        topping_name,
+      </if>
+      <if test="topping_abbname != null" >
+        topping_abbname,
+      </if>
+      <if test="img_url != null" >
+        img_url,
+      </if>
+      <if test="img_weburl != null" >
+        img_weburl,
+      </if>
+      <if test="topping_dynamic != null" >
+        topping_dynamic,
+      </if>
+      <if test="store_code != null" >
+        store_code,
+      </if>
+      <if test="machine_code != null" >
+        machine_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="topping_id != null" >
+        #{topping_id,jdbcType=INTEGER},
+      </if>
+      <if test="topping_name != null" >
+        #{topping_name,jdbcType=VARCHAR},
+      </if>
+      <if test="topping_abbname != null" >
+        #{topping_abbname,jdbcType=VARCHAR},
+      </if>
+      <if test="img_url != null" >
+        #{img_url,jdbcType=VARCHAR},
+      </if>
+      <if test="img_weburl != null" >
+        #{img_weburl,jdbcType=VARCHAR},
+      </if>
+      <if test="topping_dynamic != null" >
+        #{topping_dynamic,jdbcType=VARCHAR},
+      </if>
+      <if test="store_code != null" >
+        #{store_code,jdbcType=VARCHAR},
+      </if>
+      <if test="machine_code != null" >
+        #{machine_code,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.databases.databases.domain.three.KfcToppingConfig" >
+    update kfc_topping_config
+    <set >
+      <if test="topping_id != null" >
+        topping_id = #{topping_id,jdbcType=INTEGER},
+      </if>
+      <if test="topping_name != null" >
+        topping_name = #{topping_name,jdbcType=VARCHAR},
+      </if>
+      <if test="topping_abbname != null" >
+        topping_abbname = #{topping_abbname,jdbcType=VARCHAR},
+      </if>
+      <if test="img_url != null" >
+        img_url = #{img_url,jdbcType=VARCHAR},
+      </if>
+      <if test="img_weburl != null" >
+        img_weburl = #{img_weburl,jdbcType=VARCHAR},
+      </if>
+      <if test="topping_dynamic != null" >
+        topping_dynamic = #{topping_dynamic,jdbcType=VARCHAR},
+      </if>
+      <if test="store_code != null" >
+        store_code = #{store_code,jdbcType=VARCHAR},
+      </if>
+      <if test="machine_code != null" >
+        machine_code = #{machine_code,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.databases.databases.domain.three.KfcToppingConfig" >
+    update kfc_topping_config
+    set topping_id = #{topping_id,jdbcType=INTEGER},
+      topping_name = #{topping_name,jdbcType=VARCHAR},
+      topping_abbname = #{topping_abbname,jdbcType=VARCHAR},
+      img_url = #{img_url,jdbcType=VARCHAR},
+      img_weburl = #{img_weburl,jdbcType=VARCHAR},
+      topping_dynamic = #{topping_dynamic,jdbcType=VARCHAR},
+      store_code = #{store_code,jdbcType=VARCHAR},
+      machine_code = #{machine_code,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
